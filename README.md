@@ -8,6 +8,7 @@ Please visit [this Zenodo link](https://zenodo.org/record/7709865#.ZAkw-i-B35g) 
 
 ```
 cd knowwhy/
+# Tested with Python 3.10
 pip install -r requirements.txt
 # Installation below only required to generate automatic metric scores
 cd src/
