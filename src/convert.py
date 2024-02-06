@@ -4,6 +4,7 @@ Converts the human cache evaluations into a JSON file to train an evaluation mod
 
 import argparse
 import json
+import os
 import pickle
 import re
 from collections.abc import Mapping
@@ -159,6 +160,7 @@ def main(args: argparse.Namespace) -> None:
         sum(entry["gold"] != "not found" for entry in new_dataset),
     )
 
+    os.makedirs(os.path.dirname(args.output), exist_ok=True)
     with open(args.output, "w") as f:
         json.dump(new_dataset, f, indent=2)
 
