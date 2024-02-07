@@ -1,6 +1,7 @@
 "Splits the converted dataset into train, dev, and test sets."
 import argparse
 import json
+import random
 from pathlib import Path
 from typing import Any
 
@@ -12,8 +13,12 @@ def main() -> None:
     parser.add_argument(
         "--split", type=float, default=0.7, help="Train split percentage."
     )
+    parser.add_argument(
+        "--seed", type=int, default=0, help="Random seed for shuffling."
+    )
     args = parser.parse_args()
 
+    random.seed(args.seed)
     data: list[dict[str, Any]] = json.loads(args.input.read_text())
 
     inputs = sorted({d["input"] for d in data})
@@ -29,6 +34,11 @@ def main() -> None:
     train = [d for d in data if d["input"] in train_inputs]
     dev = [d for d in data if d["input"] in dev_inputs]
     test = [d for d in data if d["input"] in test_inputs]
+
+    # Shuffle the datasets so that partial data isn't dominated by particular questions
+    random.shuffle(train)
+    random.shuffle(dev)
+    random.shuffle(test)
 
     print(f"Train size: {len(train)} ({len(train) / len(data):.2%})")
     print(f"Dev size: {len(dev)} ({len(dev) / len(data):.2%})")
