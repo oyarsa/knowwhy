@@ -1,6 +1,11 @@
 bert-score
+black
 gdown
+isort
 jupyterlab
+jupyterlab-vim
+jupyterlab-vimrc
+jupyterlab_code_formatter
 matplotlib
 numpy
 pandas
