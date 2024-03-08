@@ -164,3 +164,5 @@ models
 
 # Use pip-tools to manage dependencies, but they are platform-specific.
 requirements.txt
+
+*.xlsx
