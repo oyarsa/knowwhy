@@ -108,7 +108,7 @@ def convert_cache(cache: Cache) -> list[DataEntry]:
     for (question, answer, narrative), value in cache.items():
         likerts = value["val_annotations"]
         avg_likert = sum(likerts) / len(likerts)
-        bin_likert = avg_likert < 1
+        bin_likert = avg_likert >= 1
 
         new_cache.append(
             {
