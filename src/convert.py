@@ -117,7 +117,7 @@ def convert_cache(cache: Cache) -> list[DataEntry]:
                 "output": answer,
                 "gold": "not found",
                 "valid": bin_likert,
-                "score": round(avg_likert),
+                "score": round(avg_likert + 3),
             }
         )
 
