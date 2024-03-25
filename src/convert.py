@@ -96,6 +96,7 @@ class DataEntry(TypedDict):
     output: str
     gold: str
     valid: bool
+    score: int
 
 
 def entry_to_input(question: str, narrative: str) -> str:
@@ -116,6 +117,7 @@ def convert_cache(cache: Cache) -> list[DataEntry]:
                 "output": answer,
                 "gold": "not found",
                 "valid": bin_likert,
+                "score": round(avg_likert),
             }
         )
 
