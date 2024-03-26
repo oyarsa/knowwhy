@@ -1,10 +1,5 @@
 #!/bin/sh
 
-if [ -z "$VIRTUAL_ENV" ]; then
-	echo "Please activate the virtual environment and install dependencies before running this script."
-	exit 1
-fi
-
 dataset="../whyqa/dataset/test.jsonl"
 converted_file="data/converted.json"
 converted_dir="data/converted"
