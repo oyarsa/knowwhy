@@ -166,3 +166,4 @@ models
 requirements.txt
 
 *.xlsx
+.virtual_documents
